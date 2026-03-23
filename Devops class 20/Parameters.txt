@@ -1,0 +1,25 @@
+pipeline{
+    agent any
+    parameters{
+        string(name: 'User', defaultValue: '', description: 'Enter the user name')
+        choice(name: 'Environment', choices: ['dev', 'qa', 'prod'], description: 'Select the environment')
+        booleanParam(name: 'Deploy', defaultValue: true, description: 'Deploy after build?')
+    }
+    stages{
+        stage("build"){
+            steps{
+                echo "Building the project for user: ${params.User} in environment: ${params.Environment}"
+            }
+        }
+        stage("test"){
+            steps{
+                echo "Testing the project for user: ${params.User} in environment: ${params.Environment}"
+            }
+        }
+        stage("deploy"){
+            steps{
+                echo "Deploying the project for user: ${params.User} in environment: ${params.Environment}"
+            }
+        }
+    }
+}

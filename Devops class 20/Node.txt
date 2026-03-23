@@ -1,0 +1,11 @@
+node{
+    stage("build"){
+        bat 'dir'
+    }
+    stage("Test"){
+        bat 'dir'
+    }
+    stage("deploy"){
+        bat 'dir'
+    }
+}
